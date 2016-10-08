@@ -3,7 +3,7 @@ FROM ubuntu:14.04.5
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
-RUN apt install -y --no-install-recommends clang
+RUN apt install -y --no-install-recommends clang git
 
 ENV HOME /home/builder
 RUN useradd --create-home --shell /bin/bash --base-dir /home builder
