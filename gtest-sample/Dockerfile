@@ -6,8 +6,6 @@ RUN apt-get update
 RUN apt install -y clang git make binutils
 RUN apt install -y --no-install-recommends ca-certificates
 
-RUN rm -fr /home/builder/work/docker-exercise/gtest-sample/src
-
 ENV HOME /home/builder
 RUN useradd --create-home --shell /bin/bash --base-dir /home builder
 USER builder
