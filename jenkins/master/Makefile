@@ -1,4 +1,7 @@
-docker: Dockerfile
+copy-sshkeys:
+	cp -fr ../sshkeys .
+
+docker: Dockerfile copy-sshkeys
 	docker build -t jenkins .
 
 # TODO: use HTTPS
