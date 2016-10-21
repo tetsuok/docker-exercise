@@ -1,5 +1,4 @@
 FROM jenkins
-COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
 
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 50000
