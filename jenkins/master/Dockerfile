@@ -18,6 +18,15 @@ RUN chown -Rf jenkins:jenkins /home/jenkins/.ssh
 USER jenkins
 RUN chmod 0700 -R /home/jenkins/.ssh
 
+USER root
+COPY certs/cert.pem /usr/local/etc/jenkins/certs/cert.pem
+COPY certs/key.pem /usr/local/etc/jenkins/certs/key.pem
+RUN chmod +r /usr/local/etc/jenkins/certs/cert.pem
+RUN chown -R jenkins:jenkins /usr/local/etc/jenkins
+
+USER jenkins
+ENV JENKINS_OPTS --httpPort=-1 --httpsPort=8443 --httpsCertificate=/usr/local/etc/jenkins/certs/cert.pem --httpsPrivateKey=/usr/local/etc/jenkins/certs/key.pem
+
 # for web and attached slave agents
-EXPOSE 8080
+EXPOSE 8443
 EXPOSE 50000
