@@ -3,8 +3,14 @@ FROM ubuntu:14.04.5
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update
-RUN apt install -y clang git make binutils
-RUN apt install -y --no-install-recommends ca-certificates
+RUN apt-get install -y \
+    binutils \
+    ca-certificates \
+    clang \
+    git \
+    make \
+    --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
 
 ENV HOME /home/builder
 RUN useradd --create-home --shell /bin/bash --base-dir /home builder

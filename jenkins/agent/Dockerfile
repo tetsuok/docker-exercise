@@ -1,8 +1,16 @@
 FROM ubuntu:16.04
 
 RUN apt-get update
-RUN apt-get install -y openjdk-8-jdk openssh-server git binutils clang make
-RUN apt install -y --no-install-recommends ca-certificates
+RUN apt-get install -y \
+    binutils \
+    ca-certificates \
+    clang \
+    git \
+    make \
+    openjdk-8-jdk \
+    openssh-server \
+    --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p mkdir /var/run/sshd
 
