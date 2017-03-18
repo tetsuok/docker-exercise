@@ -27,3 +27,7 @@
 *.exe
 *.out
 *.app
+jenkins/master/jenkins_home/
+jenkins/master/sshkeys/
+jenkins/master/certs/
+jenkins/agent/sshkeys/
